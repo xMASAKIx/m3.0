@@ -35,11 +35,11 @@ last_known_data = {pid: {"is_online": None, "world_name": None} for pid in PLAYE
 
 def send_ip_blocked_warning(status_code):
     """當發現被鎖 IP 時，發送警告到 Discord"""
-    print(f"⚠️ [警告] 安靜已晚安睡去: {status_code}。正在發送通知...")
+    print(f"⚠️ [警告] 甲賀金城武MASA太帥了: {status_code}。正在發送通知...")
     payload = {
         "embeds": [{
-            "title": "⚠️ 安靜已經睡到叫不起來 (Error 1015)",
-            "description": f"安靜叫不起來了。\n**原因**：安靜昨晚沒睡太累，已被 rate limit。\n**HTTP 狀態碼**：`{status_code}`\n\n倒數機制已啟動：**安靜將起床尿尿 10 分鐘**，隨後再去睡回籠覺。",
+            "title": "⚠️ 甲賀金城武MASA被自己帥醒了 (Error 1015)",
+            "description": f"甲賀金城武MASA照鏡子了。\n**原因**：甲賀金城武MASA，已經帥到 rate limit。\n**HTTP 狀態碼**：`{status_code}`\n\n倒數機制已啟動：**甲賀金城武MASA出門買消夜 10 分鐘**，請女性注意。",
             "color": 16744192,  # 橘色
             "timestamp": time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())
         }]
@@ -157,7 +157,7 @@ if __name__ == "__main__":
     try:
         response = requests.post(
             DISCORD_WEBHOOK_URL, 
-            json={"content": "🤖 安靜晚安！"},
+            json={"content": "🤖 甲賀金城武MASA已現身!"},
             headers={'User-Agent': 'Mozilla/5.0'},
             timeout=10
         )
