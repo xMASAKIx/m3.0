@@ -22,7 +22,8 @@ PLAYER_MAP = {
     "20372000285890864": {"name": "黑子", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/703/1746433990616.png"},
     "20372100002340154": {"name": "金武金", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/746/1777216923670.png"},
     "20372100006407090": {"name": "北極熊初音作者", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/233/1749625499529.png"},
-    "20372100005714983": {"name": "AWAWA", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/951/1763371995763.png"}
+    "20372100005714983": {"name": "AWAWA", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/951/1763371995763.png"},
+    "20372100003266920": {"name": "星見雅", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/4/1735907794712.png"}
 }
 
 DEFAULT_IMAGE = "https://example.com/default.png"
