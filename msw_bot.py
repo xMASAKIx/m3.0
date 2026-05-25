@@ -28,7 +28,8 @@ PLAYER_MAP = {
     "20372100008458134": {"name": "魚人", "image": "https://mod-file.dn.nexoncdn.co.kr/profile/758/1779542741338.png"},
     "20372100000100706": {"name": "康娜作者", "image": "https://mod-file.dn.nexoncdn.co.kr/profile/984/1722308667603.png"},
     "20372002064454021": {"name": "寶可夢黑肉", "image": "https://mod-file.dn.nexoncdn.co.kr/profile/78/1777380730697.png"},
-    "20372100000376567": {"name": "女僕愛莉作者", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/816/1714161476844.png"}
+    "20372100000376567": {"name": "女僕愛莉作者", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/816/1714161476844.png"},
+    "20372100001023713": {"name": "Majajaja", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/415/1779709498317.png"}
 }
 
 DEFAULT_IMAGE = "https://example.com/default.png"
