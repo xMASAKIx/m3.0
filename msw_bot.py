@@ -8,7 +8,7 @@ app = Flask('')
 
 @app.route('/')
 def home():
-    return "MSW Bot with Custom Images is Alive!"
+    return "M3.0 is Alive!"
 
 def run_web():
     port = int(os.environ.get("PORT", 10000))
@@ -16,6 +16,9 @@ def run_web():
 
 # --- 設定區域 ---
 PLAYER_MAP = {
+    "20372100000223997": {"name": "別時", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/17/1745254512144.png"},
+    "20372100003462156": {"name": "ㄋㄍ奧米加", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/987/1778554167572.png"},
+    "20372100004194770": {"name": "阿丞", "image": "https://mod-file.dn.nexoncdn.co.kr/profile/21/1778951712386.png"},
     "20372000486671177": {"name": "韓國愛芮", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/58/1775909266323.png"},
     "20372100003863084": {"name": "阿卡利作者", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/368/1757691781562.png"},
     "20372100003462165": {"name": "奧米加獸作者", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/988/1775817850083.png"},
@@ -35,8 +38,16 @@ PLAYER_MAP = {
 
 DEFAULT_IMAGE = "https://example.com/default.png"
 DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1506776199039553739/0OEemnWdcbnmjCwOl5UrUKnXUFeUKKAnqbFyUhvILB4-f42OG0-1k2LENsoFBuoQsc_J"
+DISCORD_WEBHOOK_URL_PAKA = "https://discord.com/api/webhooks/1509309222444208228/GHs_6vvj6nG8WkA9Y9BIuIGklRBJpTOEqGrdG5oG2wzIEC3lwJ7nLjZ90t8l-D4Ofv90"
 
-# 建議調到 30 或 60 比較安全，但這邊先保留你原本的 15 試試看
+SPECIAL_PLAYERS = [
+    "20372100000223997", # 別時
+    "20372100003462156", # ㄋㄍ奧米加
+    "20372100004194770", # 阿丞
+    "20372100005888267", # AI愛芮
+]
+
+# 💡 建議至少調到 30 ~ 60，避免過度頻繁觸發 Cloudflare 鎖 IP
 CHECK_INTERVAL = 15 
 API_URL_TEMPLATE = "https://mverse-api.nexon.com/social/v1/profile/{}"
 
@@ -63,75 +74,64 @@ def check_players():
     print(f"[{time.strftime('%H:%M:%S')}] 啟動掃描...")
 
     for pid, info in PLAYER_MAP.items():
-        time.sleep(0.6) # 👈 幫你拉長到 1.0 秒，分散連擊請求，能大大降低再被鎖的機率！
+        time.sleep(0.4) 
         try:
             name = info["name"]
             custom_image = info.get("image", DEFAULT_IMAGE)
             url = API_URL_TEMPLATE.format(pid)
             
-            # 偽裝稍微完整一點的瀏覽器特徵
+            # 偽裝稍微完整一點的瀏覽器頭
             headers = {
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
             }
             
             response = requests.get(url, headers=headers, timeout=10)
             
-            # 💡 【新增判斷】如果狀態碼不是 200，先記 LOG；如果是被鎖，就發 DC 通知並休息 10 分鐘
+            # 💡 核心新增：如果狀態碼不是 200 (例如 429 或 403)，判定為被鎖 IP
             if response.status_code != 200:
                 print(f"❌ 擷取 {name} 失敗，狀態碼: {response.status_code}")
                 if response.status_code in [429, 403, 1015]:
                     send_ip_blocked_warning(response.status_code)
                     print("😴 進入冷卻模式，暫停打擾 Nexon 10 分鐘...")
-                    time.sleep(600)  # 暫停 10 分鐘
-                    return           # 直接中斷這一輪，等 10 分鐘後重新開始
+                    time.sleep(600)  # 暫停 600 秒 (10分鐘)
+                    return           # 直接跳出這一輪的掃描，重新等待
                 continue
-                
+
             data_root = response.json().get('data', {})
             
-            # 兼容 1/0 或 True/False 的狀態值
-            raw_online = data_root.get('isOnline')
-            is_online = (raw_online == 1 or raw_online is True)
-            
+            is_online = (data_root.get('isOnline') == 1)
             world_name = data_root.get('worldName') 
             p_code = data_root.get('profileCode', '未知')
             
             prev = last_known_data[pid]
 
-            # 首次啟動：存入資料（洗掉 None 狀態）但不發通知
             if prev["is_online"] is None:
                 last_known_data[pid] = {"is_online": is_online, "world_name": world_name}
-                print(f"📌 [初始化紀錄] {name} -> 線上: {is_online}, 世界: {world_name}")
                 continue
 
             should_notify = False
             status_msg = ""
             
-            # 印出即時比對狀況（方便在 Render 之後 debug 測試帳號）
-            print(f"   [比對-{name}] 歷史: {prev['is_online']}({prev['world_name']}) ➡️ 最新: {is_online}({world_name})")
-
-            # 核心狀態改變判斷
-            if prev["is_online"] != is_online:
+            if is_online != prev["is_online"]:
                 should_notify = True
                 status_msg = "🟢 上線了！" if is_online else "🔴 下線了。"
-            elif is_online and prev["world_name"] != world_name:
+            elif is_online and world_name != prev["world_name"]:
                 should_notify = True
-                status_msg = f"切換世界"
-            
+                status_msg = "🔄 切換世界"
+
             if should_notify:
-                # 確定要通知後，立即更新歷史資料快取
                 last_known_data[pid] = {"is_online": is_online, "world_name": world_name}
                 current_world = world_name if world_name else "大廳或選單中"
                 
-                # 色彩與圖示燈號
                 if is_online:
                     if "切換世界" in status_msg:
-                        color = 16776960  # 純黃色
+                        color = 16776960  
                         title_icon = "🔄"
                     else:
-                        color = 65280     # 純綠色
+                        color = 65280     
                         title_icon = "🟢"
                 else:
-                    color = 16185856      # 純紅色
+                    color = 16711680      
                     title_icon = "🔴"
                 
                 description = f"代碼：`{p_code}`\n狀態：**{status_msg}**"
@@ -149,12 +149,15 @@ def check_players():
                     }]
                 }
                 
-                # 乾淨發送：全部直接走同一個 Webhook
-                requests.post(DISCORD_WEBHOOK_URL, json=payload, timeout=10)
-                print(f"📣 [Discord已發送] 通知玩家: {name} {status_msg}")
+                if pid in SPECIAL_PLAYERS:
+                    requests.post(DISCORD_WEBHOOK_URL_PAKA, json=payload, timeout=10)
+                    print(f"🚀 [dc2] 專屬通知: {name}")
+                else:
+                    requests.post(DISCORD_WEBHOOK_URL, json=payload, timeout=10)
+                    print(f"📣 [dc1] 一般通知: {name}")
 
         except Exception as e:
-            print(f"❌ 檢查 {pid} ({info.get('name', '未知')}) 出錯: {e}")
+            print(f"檢查 {pid} ({info['name']}) 出錯: {e}")
 
 def main_loop():
     while True:
@@ -171,7 +174,7 @@ if __name__ == "__main__":
             timeout=10
         )
         if response.status_code in [200, 204]:
-            print(f"✅ Discord 啟動訊號發送成功！")
+            print(f"✅ Discord 啟動訊號發送成功！(狀態碼: {response.status_code})")
         else:
             print(f"❌ Discord 拒絕請求，錯誤代碼: {response.status_code}")
             
