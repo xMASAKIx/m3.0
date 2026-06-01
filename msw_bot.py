@@ -28,15 +28,11 @@ PLAYER_MAP = {
     "20372100005714983": {"name": "AWAWA", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/951/1763371995763.png"},
     "20372100003266920": {"name": "星見雅", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/4/1735907794712.png"},
     "20372100005888267": {"name": "AI愛芮", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/580/1779101350088.png"},
-    "20372100008458134": {"name": "魚人", "image": "https://mod-file.dn.nexoncdn.co.kr/profile/758/1779542741338.png"},
-    "20372100000100706": {"name": "康娜作者", "image": "https://mod-file.dn.nexoncdn.co.kr/profile/984/1722308667603.png"},
     "20372002064454021": {"name": "寶可夢黑肉", "image": "https://mod-file.dn.nexoncdn.co.kr/profile/78/1777380730697.png"},
     "20372100000376567": {"name": "女僕愛莉作者", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/816/1714161476844.png"},
     "20372100001023713": {"name": "Majajaja", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/415/1779709498317.png"},
     "20372100005173094": {"name": "月亮已經紅了", "image": "https://mod-file.dn.nexoncdn.co.kr/profile/738/1777694497601.png"},
-    "20372100001142530": {"name": "北極熊", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/212/1758175186019.png"},
-    "20372100000590354": {"name": "照&露西", "image": "https://mod-file.dn.nexoncdn.co.kr/profile/114/1771410723884.png"},
-    "20372100005311821": {"name": "照&露西2", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/949/1774672479562.png"},
+    "20372100001142530": {"name": "北極熊", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/212/1758175186019.png"}
 }
 
 DEFAULT_IMAGE = "https://example.com/default.png"
