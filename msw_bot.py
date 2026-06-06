@@ -33,7 +33,8 @@ PLAYER_MAP = {
     "20372100001023713": {"name": "Majajaja", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/415/1779709498317.png"},
     "20372100005173094": {"name": "月亮已經紅了", "image": "https://mod-file.dn.nexoncdn.co.kr/profile/738/1777694497601.png"},
     "20372100001142530": {"name": "北極熊", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/212/1758175186019.png"},
-    "20372100001522660": {"name": "戴爾塔", "image": "https://mod-file.dn.nexoncdn.co.kr/profile/791/1779084458525.png"}
+    "20372100001522660": {"name": "戴爾塔", "image": "https://mod-file.dn.nexoncdn.co.kr/profile/791/1779084458525.png"},
+    "20372100000155226": {"name": "캡틴봉봉", "image": "https://mod-file.dn.nexoncdn.co.kr/profile/676/1751967028263.png"}
 }
 
 DEFAULT_IMAGE = "https://example.com/default.png"
@@ -47,6 +48,7 @@ SPECIAL_PLAYERS = [
     "20372100005888267", # AI愛芮
     "20372100000376567", # 女僕愛莉作者
     "20372100001522660", # 戴爾塔
+    "20372100000155226", # 캡틴봉봉
 ]
 
 # 💡 建議至少調到 30 ~ 60，避免過度頻繁觸發 Cloudflare 鎖 IP
