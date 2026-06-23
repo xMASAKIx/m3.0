@@ -38,7 +38,7 @@ PLAYER_MAP = {
 }
 
 DEFAULT_IMAGE = "https://example.com/default.png"
-DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1518972483733291151/r3kvB5lo7B72F7ZcjKVqvELdO_mghSq0GIRyrPdNjljt92cyhxG6-7ZOlNmQ8BbxeUnN"
+DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1519000877241991311/EXzFkOnjb3U2gAIt6j4PIIz32EF-TFHuAgvya5pkY-o7Q559Z5jBaQl3gEB9LUod04PO"
 DISCORD_WEBHOOK_URL_PAKA = "https://discord.com/api/webhooks/1518972953780551801/_BoA1DNShPghgaEHZW3kirzqjMFADLv4VoQX-wZynHSgGj_JsTZ1rp_0ZLxKKMWE7Dh4"
 
 SPECIAL_PLAYERS = [
@@ -173,7 +173,7 @@ if __name__ == "__main__":
     try:
         response = requests.post(
             DISCORD_WEBHOOK_URL, 
-            json={"content": "🤖 甲賀金城武MASA已現身!"},
+            json={"content": "🤖 甲賀彭于晏MASA被自己帥醒了"},
             headers={'User-Agent': 'Mozilla/5.0'},
             timeout=10
         )
