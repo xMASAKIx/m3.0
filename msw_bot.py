@@ -17,24 +17,18 @@ def run_web():
 # --- 設定區域 ---
 PLAYER_MAP = {
     "20372100000223997": {"name": "別時", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/17/1745254512144.png"},
-    "20372100003462156": {"name": "ㄋㄍ奧米加", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/987/1778554167572.png"},
     "20372100004194770": {"name": "阿丞", "image": "https://mod-file.dn.nexoncdn.co.kr/profile/21/1778951712386.png"},
     "20372000486671177": {"name": "韓國愛芮", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/58/1775909266323.png"},
     "20372100003863084": {"name": "阿卡利作者", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/368/1757691781562.png"},
-    "20372100003462165": {"name": "奧米加獸作者", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/988/1775817850083.png"},
     "20372000285890864": {"name": "黑子", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/703/1746433990616.png"},
     "20372100002340154": {"name": "金武金", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/746/1777216923670.png"},
     "20372100006407090": {"name": "北極熊初音作者", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/233/1749625499529.png"},
     "20372100005714983": {"name": "AWAWA", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/951/1763371995763.png"},
     "20372100003266920": {"name": "星見雅", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/4/1735907794712.png"},
-    "20372100005888267": {"name": "AI愛芮", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/580/1779101350088.png"},
-    "20372002064454021": {"name": "寶可夢黑肉", "image": "https://mod-file.dn.nexoncdn.co.kr/profile/78/1777380730697.png"},
-    "20372100000376567": {"name": "女僕愛莉作者", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/816/1714161476844.png"},
-    "20372100001023713": {"name": "Majajaja", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/415/1779709498317.png"},
     "20372100005173094": {"name": "月亮已經紅了", "image": "https://mod-file.dn.nexoncdn.co.kr/profile/738/1777694497601.png"},
     "20372100001142530": {"name": "北極熊", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/212/1758175186019.png"},
-    "20372100001522660": {"name": "戴爾塔", "image": "https://mod-file.dn.nexoncdn.co.kr/profile/791/1779084458525.png"},
-    "20372100000155226": {"name": "캡틴봉봉", "image": "https://mod-file.dn.nexoncdn.co.kr/profile/676/1751967028263.png"}
+    "20372100001522660": {"name": "戴爾塔", "image": "https://mod-file.dn.nexoncdn.co.kr/profile/791/1779084458525.png"}
+
 }
 
 DEFAULT_IMAGE = "https://example.com/default.png"
