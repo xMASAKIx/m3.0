@@ -27,7 +27,8 @@ PLAYER_MAP = {
     "20372100003266920": {"name": "星見雅", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/4/1735907794712.png"},
     "20372100005173094": {"name": "月亮已經紅了", "image": "https://mod-file.dn.nexoncdn.co.kr/profile/738/1777694497601.png"},
     "20372100001142530": {"name": "北極熊", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/212/1758175186019.png"},
-    "20372100001522660": {"name": "戴爾塔", "image": "https://mod-file.dn.nexoncdn.co.kr/profile/791/1779084458525.png"}
+    "20372100001522660": {"name": "戴爾塔", "image": "https://mod-file.dn.nexoncdn.co.kr/profile/791/1779084458525.png"},
+    "20372100000404547": {"name": "可能有娜娜奇", "image": "https://mod-file.dn.nexoncdn.co.kr/profile/706/1735528030298.png"}
 
 }
 
