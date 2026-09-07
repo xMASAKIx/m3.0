@@ -17,17 +17,13 @@ def run_web():
 # --- 設定區域 ---
 PLAYER_MAP = {
     "20372100000223997": {"name": "別時", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/17/1745254512144.png"},
-    "20372100004194770": {"name": "阿丞", "image": "https://mod-file.dn.nexoncdn.co.kr/profile/21/1778951712386.png"},
     "20372000486671177": {"name": "韓國愛芮", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/58/1775909266323.png"},
     "20372100003863084": {"name": "阿卡利作者", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/368/1757691781562.png"},
     "20372000285890864": {"name": "黑子", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/703/1746433990616.png"},
-    "20372100002340154": {"name": "金武金", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/746/1777216923670.png"},
     "20372100006407090": {"name": "北極熊初音作者", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/233/1749625499529.png"},
-    "20372100005714983": {"name": "AWAWA", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/951/1763371995763.png"},
     "20372100003266920": {"name": "星見雅", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/4/1735907794712.png"},
     "20372100005173094": {"name": "月亮已經紅了", "image": "https://mod-file.dn.nexoncdn.co.kr/profile/738/1777694497601.png"},
     "20372100001142530": {"name": "北極熊", "image": "https://mod-file.dn.nexoncdn.co.kr/shop/212/1758175186019.png"},
-    "20372100001522660": {"name": "戴爾塔", "image": "https://mod-file.dn.nexoncdn.co.kr/profile/791/1779084458525.png"},
     "20372100000404547": {"name": "可能有娜娜奇", "image": "https://mod-file.dn.nexoncdn.co.kr/profile/706/1735528030298.png"}
 
 }
@@ -37,13 +33,7 @@ DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1519000877241991311/EXzF
 DISCORD_WEBHOOK_URL_PAKA = "https://discord.com/api/webhooks/1518972953780551801/_BoA1DNShPghgaEHZW3kirzqjMFADLv4VoQX-wZynHSgGj_JsTZ1rp_0ZLxKKMWE7Dh4"
 
 SPECIAL_PLAYERS = [
-    "20372100000223997", # 別時
-    "20372100003462156", # ㄋㄍ奧米加
-    "20372100004194770", # 阿丞
     "20372100005888267", # AI愛芮
-    "20372100000376567", # 女僕愛莉作者
-    "20372100001522660", # 戴爾塔
-    "20372100000155226", # 캡틴봉봉
 ]
 
 # 💡 建議至少調到 30 ~ 60，避免過度頻繁觸發 Cloudflare 鎖 IP
