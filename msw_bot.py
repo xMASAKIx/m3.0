@@ -29,7 +29,7 @@ PLAYER_MAP = {
 }
 
 DEFAULT_IMAGE = "https://example.com/default.png"
-DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1519000877241991311/EXzFkOnjb3U2gAIt6j4PIIz32EF-TFHuAgvya5pkY-o7Q559Z5jBaQl3gEB9LUod04PO"
+DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1497592013166608484/-bQDkOKmZBbxRMXwkmgQqrFsk4cdrtKIuKfVlxk81XeXwqalZ-9VliOuSC5wI1YMcuRT"
 DISCORD_WEBHOOK_URL_PAKA = "https://discord.com/api/webhooks/1518972953780551801/_BoA1DNShPghgaEHZW3kirzqjMFADLv4VoQX-wZynHSgGj_JsTZ1rp_0ZLxKKMWE7Dh4"
 
 SPECIAL_PLAYERS = [
